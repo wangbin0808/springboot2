@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    
+    
+mapper:
+  mappers: 
+  - tk.mybatis.mapper.common.Mapper
+ # - tk.mybatis.mapper.common.Mapper2  #这里有一个误区，这个不要加，不然会报错的，但在官方的文档里有这个
+ #配置，具体是什么原因，还不知道。
+  not-empty: true
+  style: camelhump #这个是默认值，默认就是驼峰转下划线
+  safe-delete: true # 这个是开启当删除全表的时候不让删除
+  seq-format: true
+  identity: MYSQL
+  before: true
+  
+  
+mybatis:
+  configuration:
+    cache-enabled: true 
+#  type-handlers-package: com.jrj.springboot.handler
+
+  
+  
+    
+    
+    
+    
+logging:
+  level:
+    java.sql: debug
+    com.jrj.springboot.dao: debug
